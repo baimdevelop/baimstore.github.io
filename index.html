@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #ff9a9e);
+            animation: gradient 10s ease infinite;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+            visibility: hidden;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background-color: #ff6f61;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+
+        .circle:hover {
+            transform: scale(1.1);
+        }
+
+        .circle.clicked {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .circle-text {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .show-text h1 {
+            visibility: visible;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="circle" onclick="revealText()">
+        <div class="circle-text">Klik!</div>
+    </div>
+    <div class="content">
+        <h1>Selamat Ulang Tahun! yang ke 14</h1>
+        <p class="message">Semoga harapanmu terkabul!</p>
+    </div>
+
+    <script>
+        function revealText() {
+            document.querySelector('.circle').classList.add('clicked');
+            document.querySelector('.content').classList.add('show-text');
+        }
+    </script>
+</body>
+</html>
